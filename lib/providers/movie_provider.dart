@@ -50,4 +50,52 @@ class MovieProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  Future<void> fetchTrendingMovies() async {
+    _isLoading = true;
+    notifyListeners();
+
+    try {
+      final data = await apiService.fetchTrendingMovies();
+      _movies = data;
+      _errorMessage = '';
+    } catch (e) {
+      _errorMessage = 'Failed to load trending movies: $e';
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  Future<void> fetchUpcomingMovies() async {
+    _isLoading = true;
+    notifyListeners();
+
+    try {
+      final data = await apiService.fetchUpcomingMovies();
+      _movies = data;
+      _errorMessage = '';
+    } catch (e) {
+      _errorMessage = 'Failed to load upcoming movies: $e';
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  Future<void> fetchDiscoverMovies() async {
+    _isLoading = true;
+    notifyListeners();
+    try {
+      final data = await apiService
+          .fetchDiscoverMovies(); // 👈 ApiService'deki methodu çağırıyoruz
+      _movies = data;
+      _errorMessage = '';
+    } catch (e) {
+      _errorMessage = 'Failed to load discover movies: $e';
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
+  }
 }

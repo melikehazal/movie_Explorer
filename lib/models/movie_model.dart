@@ -5,7 +5,7 @@ class Movie {
   final int id;
   final String title;
   final String overview;
-  final String posterPath;
+  final String? posterPath;
   final double rating;
 
   Movie({
@@ -18,11 +18,11 @@ class Movie {
 
   factory Movie.fromJson(Map<String, dynamic> json) {
     return Movie(
-      id: json['id'],
+      id: json['id'] ?? 0,
       title: json['title'] ?? 'No Title',
       overview: json['overview'] ?? 'No Overview Available',
-      posterPath: json['poster_path'] ?? '',
-      rating: (json['vote_average'] ?? 0).toDouble(),
+      posterPath: json['poster_path'] ?? json['posterPath'] ?? '',
+      rating: (json['vote_average'] ?? json['rating'] ?? 0).toDouble(),
     );
   }
 }
