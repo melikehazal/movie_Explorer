@@ -112,13 +112,7 @@ Endpoints used:
 
 ---
 
-## 📸 Screenshots
 
-| Home                         | Discover                         | Favorites                         |
-| ---------------------------- | -------------------------------- | --------------------------------- |
-| ![](assets/screens/home.png) | ![](assets/screens/discover.png) | ![](assets/screens/favorites.png) |
-
----
 
 ## ✨ Future Improvements
 
